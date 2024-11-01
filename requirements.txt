@@ -1,0 +1,7 @@
+fastapi
+poke-battle-sim
+gunicorn
+uvicorn
+python-dotenv
+requests
+pandas
