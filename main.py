@@ -106,10 +106,12 @@ async def get_all_pokemons() -> Any:
             "data": [],
         }
 
+    filtered_pokemons = [x for x in pokemons if x["id"] != 99999]
+
     return {
         "status": "OK",
         "message": "Pokemons listados com sucesso.",
-        "data": pokemons,
+        "data": filtered_pokemons,
     }
 
 
@@ -123,7 +125,7 @@ async def get_all_pokemons() -> Any:
 async def get_pokemons(pokemon_name: str) -> Any:
     pokemons = json.load(open("dados/pokemons.json", "r"))
     raw_pokemon = [x for x in pokemons if x["nome"] == pokemon_name]
-    if len(raw_pokemon) == 0:
+    if len(raw_pokemon) == 0 or raw_pokemon[0]["id"] == 99999:
         return {
             "status": "ERROR",
             "message": "Pokemon não encontrado.",
@@ -156,12 +158,15 @@ async def get_pokemons(pokemon_name: str) -> Any:
 )
 @rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
 async def get_pokemon_image(pokemon_id: int) -> Any:
-    url = config.POKEMON_IMAGE_URL.format(pokemon_id)
-    response = requests.get(url)
-
-    return StreamingResponse(
-        BytesIO(response.content), media_type=response.headers["content-type"]
-    )
+    if pokemon_id != 99999:
+        url = config.POKEMON_IMAGE_URL.format(pokemon_id)
+        response = requests.get(url)
+        return StreamingResponse(
+            BytesIO(response.content), media_type=response.headers["content-type"]
+        )
+    else:
+        arquivo = open("dados/missingno.webp", "rb")
+        return StreamingResponse(arquivo, media_type="image/webp")
 
 
 @app.post(
@@ -192,4 +197,4 @@ async def run_battle(batalha: Batalha) -> Any:
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

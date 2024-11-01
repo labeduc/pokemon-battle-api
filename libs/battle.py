@@ -3,6 +3,45 @@ import poke_battle_sim as pb
 import json
 import random
 
+pb.PokeSim._pokemon_stats.append(
+    [
+        494,
+        "pamparuga",
+        "ground",
+        "grass",
+        115,
+        130,
+        125,
+        100,
+        110,
+        90,
+        35,
+        4000,
+        670,
+        1,
+    ]
+)
+pb.PokeSim._pokemon_stats.append(
+    [
+        495,
+        "posporuga",
+        "ground",
+        "grass",
+        115,
+        130,
+        125,
+        100,
+        110,
+        90,
+        35,
+        4000,
+        670,
+        1,
+    ]
+)
+
+pb.PokeSim._name_to_id["pamparuga"] = 494
+
 
 def create_pokemon(name):
     try:
@@ -10,6 +49,7 @@ def create_pokemon(name):
         raw_pokemon = [x for x in pokemons if x["nome"] == name]
         if len(raw_pokemon) == 0:
             return None
+
         pokemon = pb.Pokemon(
             name_or_id=raw_pokemon[0]["nome"],
             level=raw_pokemon[0]["nivel"],
