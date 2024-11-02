@@ -106,7 +106,7 @@ async def get_all_pokemons() -> Any:
             "data": [],
         }
 
-    filtered_pokemons = [x for x in pokemons if x["id"] != 99999]
+    filtered_pokemons = [x for x in pokemons if x["id"] != 494]
 
     return {
         "status": "OK",
@@ -125,7 +125,7 @@ async def get_all_pokemons() -> Any:
 async def get_pokemons(pokemon_name: str) -> Any:
     pokemons = json.load(open("dados/pokemons.json", "r"))
     raw_pokemon = [x for x in pokemons if x["nome"] == pokemon_name]
-    if len(raw_pokemon) == 0 or raw_pokemon[0]["id"] == 99999:
+    if len(raw_pokemon) == 0 or raw_pokemon[0]["id"] == 494:
         return {
             "status": "ERROR",
             "message": "Pokemon não encontrado.",
@@ -158,7 +158,7 @@ async def get_pokemons(pokemon_name: str) -> Any:
 )
 @rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
 async def get_pokemon_image(pokemon_id: int) -> Any:
-    if pokemon_id != 99999:
+    if pokemon_id != 494:
         url = config.POKEMON_IMAGE_URL.format(pokemon_id)
         response = requests.get(url)
         return StreamingResponse(
