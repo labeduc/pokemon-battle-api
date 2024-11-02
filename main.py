@@ -165,7 +165,7 @@ async def get_pokemon_image(pokemon_id: int) -> Any:
             BytesIO(response.content), media_type=response.headers["content-type"]
         )
     else:
-        arquivo = open("dados/missingno.webp", "rb")
+        arquivo = open("dados/pamparuga.webp", "rb")
         return StreamingResponse(arquivo, media_type="image/webp")
 
 
