@@ -80,6 +80,7 @@ button:hover {
 .pamparuga-section {
     flex: 1;
     text-align: center;
+    cursor: pointer;
 }
 
 .pamparuga-image {
@@ -87,6 +88,7 @@ button:hover {
     height: auto;
     border-radius: 10px;
     border: 2px solid #0044cc;
+    cursor: pointer;
 }
 
 .pamparuga-section h2 {
@@ -127,6 +129,7 @@ button:hover {
     height: 96px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    cursor: pointer;
 }
 
 .modal {
@@ -164,4 +167,26 @@ button:hover {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.pokemon-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.pokemon-details-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.table-key {
+    font-weight: bold;
+    background-color: #f2f2f2;
+    text-align: left;
+    width: 40%;
+}
+
+.table-value {
+    text-align: left;
 }

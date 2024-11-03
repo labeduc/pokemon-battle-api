@@ -1,34 +1,59 @@
-document.getElementById('battle-form').addEventListener('submit', function (e) {
-    e.preventDefault();
+document.getElementById('battle-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
 
-    const trainerName = document.getElementById('trainer-name').value;
-    const pokemon1 = document.getElementById('pokemon1').value;
-    const pokemon2 = document.getElementById('pokemon2').value;
-    const pokemon3 = document.getElementById('pokemon3').value;
+  const trainerName = document.getElementById('trainer-name').value;
+  const pokemon1 = document.getElementById('pokemon1').selectedOptions[0].textContent;
+  const pokemon2 = document.getElementById('pokemon2').selectedOptions[0].textContent;
+  const pokemon3 = document.getElementById('pokemon3').selectedOptions[0].textContent;
+
+  // Estrutura dos dados a serem enviados
+  const battleData = {
+    "treinador_1": {
+      "nome": trainerName,
+      "pokemons": [pokemon1, pokemon2, pokemon3]
+    },
+    "treinador_2": {
+      "nome": "Equipe Rocket",
+      "pokemons": ["pamparuga"]
+    }
+  };
+
+  try {
+    // Envia a requisição para a API de batalha
+    const response = await fetch(battleApiURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(battleData)
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao iniciar a batalha");
+
+    }
+
+    // Obtém os dados da resposta (passos da batalha)
+    const battleSteps = await response.json();
+    const messages = battleSteps.data;
 
     const log = document.getElementById('log');
     log.innerHTML = ''; // Limpa o log antes de uma nova batalha
 
-    const messages = [
-        `Treinador ${trainerName} entrou na batalha com ${pokemon1}, ${pokemon2} e ${pokemon3}.`,
-        `${pokemon1} usou um ataque poderoso em Pamparuga!`,
-        `Pamparuga se defendeu e contra-atacou com uma investida brutal!`,
-        `${pokemon2} entrou em ação e usou um golpe especial!`,
-        `Pamparuga parece estar enfurecido, mas ${pokemon3} não se intimida e lança seu melhor ataque!`,
-        `Após uma batalha épica, Pamparuga recua, permitindo ao treinador ${trainerName} vencer!`
-    ];
 
     messages.forEach((message, index) => {
-        setTimeout(() => {
-            log.innerHTML += message + '\n';
-            log.scrollTop = log.scrollHeight;
-        }, index * 1000); // Mensagens surgem a cada segundo
+      setTimeout(() => {
+        log.innerHTML += message + '\n';
+        log.scrollTop = log.scrollHeight;
+      }, index * 1000); // Mensagens surgem a cada segundo
     });
+  } catch (error) { console.log(error) }
 });
 
 // URLs da API
 const apiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
 const pokemonImageBaseURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
+const battleApiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/batalha";
 
 // Função para buscar os dados dos Pokémon e preencher os dropdowns
 async function fetchAndPopulatePokemon() {
@@ -59,15 +84,66 @@ async function fetchAndPopulatePokemon() {
     }
 }
 
-// Função para exibir o modal com detalhes do Pokémon
+// Função para exibir o modal com detalhes do Pokémon em forma de tabela
 async function showPokemonDetails(pokemonName) {
     try {
         const response = await fetch(`http://localhost:8000/pokemons/${pokemonName.toLowerCase()}`);
         const data = await response.json();
 
-        document.getElementById("pokemon-name").textContent = pokemonName;
-        document.getElementById("pokemon-details").textContent = data.data; // Exibe a descrição do Pokémon
+        document.getElementById("pokemon-name").textContent = pokemonName.toUpperCase();
 
+        // Limpa o conteúdo anterior
+        const detailsContainer = document.getElementById("pokemon-details");
+        detailsContainer.innerHTML = "";
+
+        // Cria uma tabela para exibir as informações
+        const table = document.createElement("table");
+        table.classList.add("pokemon-details-table");
+
+      // Itera sobre cada campo de data e adiciona uma linha à tabela
+       const excludedKeys = ["name_or_id","cur_hp", "ivs", "evs", "status", "nickname", "friendship", "item"];
+      for (const [key, value] of Object.entries(data.data[0])) {
+        if (excludedKeys.includes(key)) continue;
+          
+        if (key === "stats_actual") {
+          const statsTitles = ["HP", "Attack", "Defense", "Sp.Defense", "Sp.Attack", "Speed"];
+                
+          value.forEach((stat, index) => {
+            const row = document.createElement("tr");
+
+            const keyCell = document.createElement("td");
+            keyCell.textContent = statsTitles[index];
+            keyCell.classList.add("table-key");
+
+            const valueCell = document.createElement("td");
+            valueCell.textContent = stat;
+            valueCell.classList.add("table-value");
+
+            row.appendChild(keyCell);
+            row.appendChild(valueCell);
+            table.appendChild(row);
+          });
+        } else {
+          const row = document.createElement("tr");
+
+          const keyCell = document.createElement("td");
+          keyCell.textContent = key.charAt(0).toUpperCase() + key.slice(1); // Capitaliza a chave
+          keyCell.classList.add("table-key");
+
+          const valueCell = document.createElement("td");
+          valueCell.textContent = value;
+          valueCell.classList.add("table-value");
+
+          row.appendChild(keyCell);
+          row.appendChild(valueCell);
+          table.appendChild(row);
+        }
+      }
+
+        // Adiciona a tabela ao modal
+        detailsContainer.appendChild(table);
+
+        // Exibe o modal
         const modal = document.getElementById("pokemon-modal");
         modal.style.display = "block";
     } catch (error) {
@@ -75,12 +151,36 @@ async function showPokemonDetails(pokemonName) {
     }
 }
 
+// Função para exibir o modal com a imagem do Pamparuga
+function showPamparugaImage() {
+    const detailsContainer = document.getElementById("pokemon-details");
+    detailsContainer.innerHTML = ""; // Limpa o conteúdo anterior
+
+    const image = document.createElement("img");
+    image.src = "Pamparuga.jpeg";
+    image.alt = "Imagem de Pamparuga";
+    image.style.width = "100%"; // Ajusta a largura da imagem no modal
+
+    detailsContainer.appendChild(image);
+
+    document.getElementById("pokemon-name").textContent = "";
+    document.getElementById("pokemon-modal").style.display = "block";
+}
+
 // Evento para exibir o modal ao passar o mouse sobre a imagem
 document.querySelectorAll(".pokemon-image").forEach(img => {
-    img.addEventListener("mouseenter", () => {
+    img.addEventListener("click", () => {
         const pokemonName = img.previousElementSibling.selectedOptions[0].textContent;
         showPokemonDetails(pokemonName);
     });
+});
+
+// Evento para exibir o modal com a imagem do Pamparuga ao clicar
+document.getElementById("pamparuga-image").addEventListener("click", showPamparugaImage);
+
+// Evento para fechar o modal ao clicar no botão "X"
+document.getElementById("close-modal").addEventListener("click", () => {
+    document.getElementById("pokemon-modal").style.display = "none";
 });
 
 // Chama a função para buscar e popular os dropdowns ao carregar a página
