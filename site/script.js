@@ -59,6 +59,30 @@ async function fetchAndPopulatePokemon() {
     }
 }
 
+// Função para exibir o modal com detalhes do Pokémon
+async function showPokemonDetails(pokemonName) {
+    try {
+        const response = await fetch(`http://localhost:8000/pokemons/${pokemonName.toLowerCase()}`);
+        const data = await response.json();
+
+        document.getElementById("pokemon-name").textContent = pokemonName;
+        document.getElementById("pokemon-details").textContent = data.data; // Exibe a descrição do Pokémon
+
+        const modal = document.getElementById("pokemon-modal");
+        modal.style.display = "block";
+    } catch (error) {
+        console.error("Erro ao buscar informações do Pokémon:", error);
+    }
+}
+
+// Evento para exibir o modal ao passar o mouse sobre a imagem
+document.querySelectorAll(".pokemon-image").forEach(img => {
+    img.addEventListener("mouseenter", () => {
+        const pokemonName = img.previousElementSibling.selectedOptions[0].textContent;
+        showPokemonDetails(pokemonName);
+    });
+});
+
 // Chama a função para buscar e popular os dropdowns ao carregar a página
 window.addEventListener("DOMContentLoaded", fetchAndPopulatePokemon);
 const imageElement1 = document.getElementById("pokemon1-image");

@@ -29,8 +29,7 @@ app = FastAPI(
     version="0.1.0",
     openapi_tags=config.tags_metadata,
 )
-templates = Jinja2Templates(directory="template")
-app.mount("/", StaticFiles(directory="template", html=True), name="template")
+app.mount("/site", StaticFiles(directory="site", html=True), name="site")
 
 # -------------------------------------------------
 # Adding Middlewares
@@ -84,15 +83,9 @@ def rate_limited(max_calls: int, time_frame: int):
 # -------------------------------------------------
 # Endpoints
 # -------------------------------------------------
-@app.get("/", tags=["Site"], response_class=HTMLResponse, include_in_schema=False)
-@rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
-async def admin(request: Request) -> Any:
-    return FileResponse("index.html")
 
 
-@app.get(
-    "/status", tags=["Status"], response_model=Result, operation_id="get_api_status"
-)
+@app.get("/", tags=["Status"], response_model=Result, operation_id="get_api_status")
 async def get_api_status() -> Any:
     return {
         "status": "OK",
