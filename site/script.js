@@ -1,24 +1,45 @@
-document.getElementById('battle-form').addEventListener('submit', async function (e) {
-  e.preventDefault();
+const apiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
+const pokemonImageBaseURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
+const battleApiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/batalha";
 
+// Estrutura dos dados a serem enviados
+var battleData = {
+  "treinador_1": {
+    "nome": "",
+    "pokemons": []
+  },
+  "treinador_2": {
+    "nome": "Equipe Rocket",
+    "pokemons": ["pamparuga"]
+  }
+};
+
+// Função para inicializar Choices.js nas dropdowns após carregá-las com dados
+function initializeChoices() {
+  const dropdowns = [document.getElementById("pokemon1"), document.getElementById("pokemon2"), document.getElementById("pokemon3")];
+
+  dropdowns.forEach(dropdown => {
+    new Choices(dropdown, {
+      placeholderValue: "Selecione um Pokémon",
+      searchPlaceholderValue: "Buscar Pokémon...",
+      itemSelectText: "", // Remove o texto "Pressione para selecionar" (opcional)
+      renderSelectedChoices: 'auto'
+    });
+  });
+}
+
+async function batalha(e) {
+  e.preventDefault();
   const trainerName = document.getElementById('trainer-name').value;
   const pokemon1 = document.getElementById('pokemon1').selectedOptions[0].textContent;
   const pokemon2 = document.getElementById('pokemon2').selectedOptions[0].textContent;
-  const pokemon3 = document.getElementById('pokemon3').selectedOptions[0].textContent;
+  const pokemon3 = document.getElementById('pokemon3').selectedOptions[0].textContent;  
 
-  // Estrutura dos dados a serem enviados
-  const battleData = {
-    "treinador_1": {
-      "nome": trainerName,
-      "pokemons": [pokemon1, pokemon2, pokemon3]
-    },
-    "treinador_2": {
-      "nome": "Equipe Rocket",
-      "pokemons": ["pamparuga"]
-    }
-  };
+  battleData.treinador_1.nome = trainerName;
+  battleData.treinador_1.pokemons = [pokemon1, pokemon2, pokemon3];
 
   try {
+    console.log(battleData);
     // Envia a requisição para a API de batalha
     const response = await fetch(battleApiURL, {
       method: "POST",
@@ -35,6 +56,7 @@ document.getElementById('battle-form').addEventListener('submit', async function
 
     // Obtém os dados da resposta (passos da batalha)
     const battleSteps = await response.json();
+    console.log(battleSteps);
     const messages = battleSteps.data;
 
     const log = document.getElementById('log');
@@ -48,12 +70,7 @@ document.getElementById('battle-form').addEventListener('submit', async function
       }, index * 1000); // Mensagens surgem a cada segundo
     });
   } catch (error) { console.log(error) }
-});
-
-// URLs da API
-const apiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
-const pokemonImageBaseURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
-const battleApiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/batalha";
+}  
 
 // Função para buscar os dados dos Pokémon e preencher os dropdowns
 async function fetchAndPopulatePokemon() {
@@ -79,6 +96,7 @@ async function fetchAndPopulatePokemon() {
                 imageElement.src = `${pokemonImageBaseURL}/${selectedPokemonId}/picture`;
             });
         });
+               initializeChoices();
     } catch (error) {
         console.error("Erro ao buscar dados dos Pokémon:", error);
     }
@@ -166,6 +184,8 @@ function showPamparugaImage() {
     document.getElementById("pokemon-name").textContent = "";
     document.getElementById("pokemon-modal").style.display = "block";
 }
+
+document.getElementById('battle-form').addEventListener('submit', batalha);
 
 // Evento para exibir o modal ao passar o mouse sobre a imagem
 document.querySelectorAll(".pokemon-image").forEach(img => {

@@ -185,18 +185,16 @@ async def run_battle(batalha: Batalha) -> Any:
         p1 = create_trainer(batalha.treinador_1.nome, batalha.treinador_1.pokemons)
         p2 = create_trainer(batalha.treinador_2.nome, batalha.treinador_2.pokemons)
         results = do_battle(p1, p2)
-        print(results)
         return {
             "status": "OK",
             "message": "Batalha realizada com sucesso.",
             "data": results,
         }
     except Exception as e:
-        traceback.print_exc()
         return {
             "status": "ERROR",
             "message": "Erro ao realizar a batalha.",
-            "data": [],
+            "data": [traceback.print_exc()],
         }
 
 

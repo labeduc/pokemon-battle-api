@@ -190,3 +190,16 @@ button:hover {
 .table-value {
     text-align: left;
 }
+
+/* Define uma largura fixa para as dropdowns Choices.js */
+.choices {
+    width: 100% !important; /* Ajusta conforme o container do formulário */
+}
+
+.choices__inner {
+    min-width: 200px; /* Largura mínima, ajuste conforme necessário */
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Esconde o texto excedente */
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */}
