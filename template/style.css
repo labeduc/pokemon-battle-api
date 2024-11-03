@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a2d9ff, #007acc); /* Gradiente azul */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #ff0000; /* Vermelho Pokémon */
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.form-section {
+    flex: 1;
+}
+
+label {
+    font-weight: bold;
+    color: #0044cc; /* Azul Pokémon */
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid #ffcc00; /* Amarelo Pokémon */
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #cc0000;
+}
+
+.versus {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin: 0 10px;
+}
+
+.pamparuga-section {
+    flex: 1;
+    text-align: center;
+}
+
+.pamparuga-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #0044cc;
+}
+
+.pamparuga-section h2 {
+    font-size: 18px;
+    color: #ff0000;
+    margin-top: 10px;
+}
+
+.pamparuga-section p {
+    color: #666;
+    font-size: 14px;
+}
+
+.battle-log {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: scroll;
+    border-top: 2px solid #ffcc00;
+    padding-top: 10px;
+}
+
+.log-content {
+    font-size: 14px;
+    color: #333;
+    padding: 10px;
+    white-space: pre-line;
+}
+
+.pokemon-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pokemon-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}

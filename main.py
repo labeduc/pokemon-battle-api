@@ -5,16 +5,18 @@
 from functools import wraps
 from io import BytesIO
 from time import time
-from typing import Any
+from typing import Annotated, Any
 
 import json
 import traceback
 
 from fastapi import FastAPI, HTTPException, Request, status
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 import uvicorn
 import requests
 
@@ -27,7 +29,8 @@ app = FastAPI(
     version="0.1.0",
     openapi_tags=config.tags_metadata,
 )
-
+templates = Jinja2Templates(directory="template")
+app.mount("/", StaticFiles(directory="template", html=True), name="template")
 
 # -------------------------------------------------
 # Adding Middlewares
@@ -81,7 +84,15 @@ def rate_limited(max_calls: int, time_frame: int):
 # -------------------------------------------------
 # Endpoints
 # -------------------------------------------------
-@app.get("/", tags=["Status"], response_model=Result, operation_id="get_api_status")
+@app.get("/", tags=["Site"], response_class=HTMLResponse, include_in_schema=False)
+@rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
+async def admin(request: Request) -> Any:
+    return FileResponse("index.html")
+
+
+@app.get(
+    "/status", tags=["Status"], response_model=Result, operation_id="get_api_status"
+)
 async def get_api_status() -> Any:
     return {
         "status": "OK",
@@ -122,9 +133,9 @@ async def get_all_pokemons() -> Any:
     operation_id="get_pokemons",
 )
 @rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
-async def get_pokemons(pokemon_name: str) -> Any:
+async def get_pokemons(pokemon_name_or_id: str) -> Any:
     pokemons = json.load(open("dados/pokemons.json", "r"))
-    raw_pokemon = [x for x in pokemons if x["nome"] == pokemon_name]
+    raw_pokemon = [x for x in pokemons if x["nome"] == pokemon_name_or_id]
     if len(raw_pokemon) == 0 or raw_pokemon[0]["id"] == 494:
         return {
             "status": "ERROR",
@@ -197,4 +208,4 @@ async def run_battle(batalha: Batalha) -> Any:
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

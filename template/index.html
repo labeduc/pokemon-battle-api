@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha Pokémon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Battle Simulator</h1>
+
+    <div class="content">
+      <!-- Formulário à esquerda -->
+      <form id="battle-form" class="form-section">
+        <label for="trainer-name">Nome do Treinador:</label>
+        <input type="text" id="trainer-name" name="trainer-name" required>
+
+        <label for="pokemon1">Pokémon 1:</label>
+        <div class="pokemon-selection">
+          <select id="pokemon1" name="pokemon1" required></select>
+          <img id="pokemon1-image" class="pokemon-image" alt="Imagem do Pokémon 1">
+        </div>
+
+        <label for="pokemon2">Pokémon 2:</label>
+        <div class="pokemon-selection">
+          <select id="pokemon2" name="pokemon2" required></select>
+          <img id="pokemon2-image" class="pokemon-image" alt="Imagem do Pokémon 2">
+        </div>
+
+        <label for="pokemon3">Pokémon 3:</label>
+        <div class="pokemon-selection">
+          <select id="pokemon3" name="pokemon3" required></select>
+          <img id="pokemon3-image" class="pokemon-image" alt="Imagem do Pokémon 3">
+        </div>
+
+        <button type="submit">Iniciar Batalha</button>
+      </form>
+
+      <!-- X para indicar o versus -->
+      <div class="versus">X</div>
+
+      <!-- Imagem do Pamparuga à direita -->
+      <div class="pamparuga-section">
+        <img src="https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons/494/picture" alt="Pamparuga"
+          class="pamparuga-image">
+        <h2>Pamparuga</h2>
+        <p>O Guardião dos Pampas</p>
+      </div>
+    </div>
+
+    <div class="battle-log">
+      <h2>Registro da Batalha</h2>
+      <div id="log" class="log-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
