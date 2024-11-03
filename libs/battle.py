@@ -80,11 +80,17 @@ def do_battle(trainer1, trainer2):
         results.append(item)
 
     while not battle.is_finished():
-        t1m = random.choice(battle.t1.current_poke.moves)
-        t2m = random.choice(battle.t2.current_poke.moves)
-        battle.turn(["move", t1m.name], ["move", t2m.name])
-        for item in battle.get_cur_text():
-            results.append(item)
+        try:
+            t1m = random.choice(battle.t1.current_poke.moves)
+            t2m = random.choice(battle.t2.current_poke.moves)
+            battle.turn(["move", t1m.name], ["move", t2m.name])
+            for item in battle.get_cur_text():
+                results.append(item)
+        except:
+            if not battle.t1.can_use_move(t1m):
+                results.append(f"{battle.t1.current_poke.name} is confused!")
+            if not battle.t2.can_use_move(t2m):
+                results.append(f"{battle.t2.current_poke.name} is confused!")
 
     results.append(battle.get_winner().name + " wins!")
     print(results)
