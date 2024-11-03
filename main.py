@@ -98,10 +98,10 @@ async def get_api_status() -> Any:
     "/pokemons",
     tags=["Pokemons"],
     response_model=Result,
-    operation_id="get_all_pokemons",
+    operation_id="get_pokemons",
 )
 @rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
-async def get_all_pokemons() -> Any:
+async def get_pokemons() -> Any:
     pokemons = json.load(open("dados/pokemons.json", "r"))
     if len(pokemons) == 0:
         return {
@@ -123,10 +123,10 @@ async def get_all_pokemons() -> Any:
     "/pokemons/{pokemon_name_or_id}",
     tags=["Pokemons"],
     response_model=Result,
-    operation_id="get_pokemons",
+    operation_id="get_pokemon",
 )
 @rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
-async def get_pokemons(pokemon_name_or_id: str) -> Any:
+async def get_pokemon(pokemon_name_or_id: str) -> Any:
     pokemons = json.load(open("dados/pokemons.json", "r"))
     raw_pokemon = [x for x in pokemons if x["nome"] == pokemon_name_or_id]
     if len(raw_pokemon) == 0 or raw_pokemon[0]["id"] == 494:
@@ -158,7 +158,7 @@ async def get_pokemons(pokemon_name_or_id: str) -> Any:
 @app.get(
     "/pokemons/{pokemon_id}/picture",
     tags=["Pokemons"],
-    operation_id="get_pokemon",
+    operation_id="get_pokemon_picture",
 )
 @rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
 async def get_pokemon_image(pokemon_id: int) -> Any:
@@ -176,7 +176,7 @@ async def get_pokemon_image(pokemon_id: int) -> Any:
 @app.post(
     "/batalha",
     tags=["Batalha"],
-    operation_id="do_battle",
+    operation_id="run_battle",
 )
 @rate_limited(config.THROTTLE_RATE, config.THROTTLE_TIME)
 async def run_battle(batalha: Batalha) -> Any:
@@ -199,4 +199,4 @@ async def run_battle(batalha: Batalha) -> Any:
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
