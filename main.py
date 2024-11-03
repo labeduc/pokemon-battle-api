@@ -194,7 +194,7 @@ async def run_battle(batalha: Batalha) -> Any:
         return {
             "status": "ERROR",
             "message": "Erro ao realizar a batalha.",
-            "data": [traceback.print_exc()],
+            "data": [traceback.format_exc()],
         }
 
 
