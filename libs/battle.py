@@ -93,5 +93,4 @@ def do_battle(trainer1, trainer2):
                 results.append(f"{battle.t2.current_poke.name} is confused!")
 
     results.append(battle.get_winner().name + " wins!")
-    print(results)
     return results
