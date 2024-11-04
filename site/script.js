@@ -40,7 +40,6 @@ async function batalha(e) {
   battleData.treinador_1.pokemons = [pokemon1, pokemon2, pokemon3];
 
   try {
-    console.log(battleData);
     // Envia a requisição para a API de batalha
     const response = await fetch(battleApiURL, {
       method: "POST",
@@ -57,7 +56,6 @@ async function batalha(e) {
 
     // Obtém os dados da resposta (passos da batalha)
     const battleSteps = await response.json();
-    console.log(battleSteps);
     const messages = battleSteps.data;
 
     const log = document.getElementById('log');
@@ -193,15 +191,8 @@ function showPamparugaImage() {
   document.getElementById("pokemon-modal").style.display = "block";
 }
 
+// Evento para enviar os dados da batalha ao clicar no botão "Batalhar"
 document.getElementById('battle-form').addEventListener('submit', batalha);
-
-// Evento para exibir o modal ao passar o mouse sobre a imagem
-// document.querySelectorAll(".pokemon-image").forEach(img => {
-//     img.addEventListener("click", () => {
-//         const pokemonName = img.previousElementSibling.selectedOptions[0].textContent;
-//         showPokemonDetails(pokemonName);
-//     });
-// });
 
 // Evento para exibir o modal com a imagem do Pamparuga ao clicar
 document.getElementById("pamparuga-image").addEventListener("click", showPamparugaImage);
