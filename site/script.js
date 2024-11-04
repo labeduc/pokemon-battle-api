@@ -113,7 +113,7 @@ async function fetchAndPopulatePokemon() {
 // Função para exibir o modal com detalhes do Pokémon em forma de tabela
 async function showPokemonDetails(pokemonName) {
   try {
-    const response = await fetch(`http://localhost:8000/pokemons/${pokemonName.toLowerCase()}`);
+    const response = await fetch(`${apiURL}/${pokemonName.toLowerCase()}`);
     const data = await response.json();
 
     document.getElementById("pokemon-name").textContent = pokemonName.toUpperCase();
