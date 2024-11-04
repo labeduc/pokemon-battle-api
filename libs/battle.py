@@ -81,8 +81,12 @@ def do_battle(trainer1, trainer2):
 
     while not battle.is_finished():
         try:
-            t1m = random.choice(battle.t1.current_poke.moves)
-            t2m = random.choice(battle.t2.current_poke.moves)
+            print(battle.t1.current_poke.name, battle.t2.current_poke.name)
+            t1_avail_moves = battle.t1.current_poke.get_available_moves()
+            t2_avail_moves = battle.t2.current_poke.get_available_moves()
+
+            t1m = random.choice(t1_avail_moves)
+            t2m = random.choice(t2_avail_moves)
             battle.turn(["move", t1m.name], ["move", t2m.name])
             for item in battle.get_cur_text():
                 results.append(item)

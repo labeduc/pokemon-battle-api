@@ -1,3 +1,4 @@
+/* Estilos iniciais */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +11,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 10px;
 }
 
 .container {
@@ -37,7 +39,7 @@ h1 {
 }
 
 .form-section {
-    flex: 1;
+  flex: 1;
 }
 
 label {
@@ -202,4 +204,45 @@ button:hover {
     box-sizing: border-box;
     white-space: nowrap; /* Impede a quebra de linha */
     overflow: hidden; /* Esconde o texto excedente */
-    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */}
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Alinha verticalmente em telas menores */
+        align-items: stretch;
+    }
+
+    .form-section, .pamparuga-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .versus {
+        font-size: 24px;
+        margin: 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .pokemon-selection {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pokemon-image {
+        min-width: 72px;
+        min-height: 72px;
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+}
