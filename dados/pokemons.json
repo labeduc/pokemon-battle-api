@@ -35547,14 +35547,14 @@
     ],
     "habilidade": "thick-fat",
     "natureza": "serious",
-    "cur_hp": 115,
+    "cur_hp": 150,
     "stats": [
-      130,
-      130,
-      180,
+      150,
+      150,
+      200,
       140,
-      100,
-      90
+      120,
+      100
     ],
     "imagem": "dados/pamparuga.webp",
     "legendario": true,
@@ -35565,7 +35565,6 @@
         "ice",
         "grass",
         "water",
-        "poison",
         "steel"
       ],
       "recebe_dano_metade": [
@@ -35584,8 +35583,6 @@
         "poison",
         "electric",
         "rock",
-        "fire",
-        "steel",
         "fighting",
         "dragon",
         "dark"
@@ -35593,7 +35590,6 @@
       "causa_dano_metade": [
         "bug",
         "grass",
-        "poison",
         "steel",
         "fire"
       ],
