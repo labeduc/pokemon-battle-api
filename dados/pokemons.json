@@ -35543,14 +35543,14 @@
       "sandstorm",
       "earth-power",
       "sand-attack",
-      "mud-sport"
+      "solar-beam"
     ],
     "habilidade": "thick-fat",
     "natureza": "serious",
     "cur_hp": 150,
     "stats": [
       150,
-      150,
+      170,
       200,
       140,
       120,
