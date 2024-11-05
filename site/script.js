@@ -2,17 +2,6 @@ const apiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
 const pokemonImageBaseURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons";
 const battleApiURL = "https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/batalha";
 
-// Estrutura dos dados a serem enviados
-var battleData = {
-  "treinador_1": {
-    "nome": "",
-    "pokemons": []
-  },
-  "treinador_2": {
-    "nome": "Equipe Rocket",
-    "pokemons": ["pamparuga"]
-  }
-};
 
 // Função para inicializar Choices.js nas dropdowns após carregá-las com dados
 function initializeChoices() {
@@ -36,8 +25,17 @@ async function batalha(e) {
   const pokemon2 = document.getElementById('pokemon2').selectedOptions[0].textContent;
   const pokemon3 = document.getElementById('pokemon3').selectedOptions[0].textContent;
 
-  battleData.treinador_1.nome = trainerName;
-  battleData.treinador_1.pokemons = [pokemon1, pokemon2, pokemon3];
+  // Estrutura dos dados a serem enviados
+  var battleData = {
+    "treinador_1": {
+      "nome": trainerName,
+      "pokemons": [pokemon1, pokemon2, pokemon3]
+    },
+    "treinador_2": {
+      "nome": "Equipe Rocket",
+      "pokemons": ["pamparuga"]
+    }
+  };
 
   try {
     // Envia a requisição para a API de batalha
