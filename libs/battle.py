@@ -90,13 +90,12 @@ def do_battle(trainer1, trainer2):
             battle.turn(["move", t1m.name], ["move", t2m.name])
             for item in battle.get_cur_text():
                 results.append(item)
-
-            turns -= 1
         except:
             if not battle.t1.can_use_move(t1m):
                 results.append(f"{battle.t1.current_poke.name} is confused!")
             if not battle.t2.can_use_move(t2m):
                 results.append(f"{battle.t2.current_poke.name} is confused!")
+        turns -= 1
 
     if turns == 0:
         results.append("The battle was a draw!")
