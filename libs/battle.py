@@ -85,12 +85,27 @@ def do_battle(trainer1, trainer2):
             t1_avail_moves = battle.t1.current_poke.get_available_moves()
             t2_avail_moves = battle.t2.current_poke.get_available_moves()
 
-            t1m = random.choice(t1_avail_moves)
-            t2m = random.choice(t2_avail_moves)
-            battle.turn(["move", t1m.name], ["move", t2m.name])
-            for item in battle.get_cur_text():
-                results.append(item)
+            if t1_avail_moves:
+                t1m = random.choice(t1_avail_moves)
+            if t2_avail_moves:
+                t2m = random.choice(t2_avail_moves)
+
+            if t1m and t2m:
+                battle.turn(["move", t1m.name], ["move", t2m.name])
+                for item in battle.get_cur_text():
+                    results.append(item)
+            else:
+                if not t1m:
+                    results.append(
+                        f"{battle.t1.current_poke.name} does not have moves!"
+                    )
+
+                if not t2m:
+                    results.append(
+                        f"{battle.t2.current_poke.name} does not have moves!"
+                    )
         except:
+            print(traceback.format_exc())
             if not battle.t1.can_use_move(t1m):
                 results.append(f"{battle.t1.current_poke.name} is confused!")
             if not battle.t2.can_use_move(t2m):
