@@ -9,7 +9,7 @@
       "poison"
     ],
     "movimentos": [
-      "smog",
+      "quick-attack",
       "cross-poison"
     ],
     "habilidade": "chlorophyll",
@@ -29691,8 +29691,8 @@
     "movimentos": [
       "sandstorm",
       "earth-power",
-      "sand-attack",
-      "solar-beam",
+      "synthesis",
+      "hyper-beam",
       "razor-wind"
     ],
     "habilidade": "thick-fat",
