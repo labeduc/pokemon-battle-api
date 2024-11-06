@@ -46,7 +46,7 @@ function openBattleModal(battleData) {
 
 // Função para atualizar o status do Pokémon em batalha
 function updateBattleStatus(side, pokemonIndex, hp) {
-  const imageElement = document.getElementById(`${side}-image`);
+  const imageElement = document.getElementById(`${side}-image1`);
   const hpElement = document.getElementById(`${side}-hp`);
 
   // Atualiza a imagem e HP do Pokémon em batalha
