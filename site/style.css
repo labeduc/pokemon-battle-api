@@ -207,6 +207,82 @@ button:hover {
     text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
 }
 
+/* Estilo da modal de batalha */
+.battle-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Título e botão de fechar */
+.battle-modal-content h2 {
+    color: #ff0000;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#close-battle-modal {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#close-battle-modal:hover,
+#close-battle-modal:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Layout dos Pokémon em batalha */
+.battle-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.pokemon-side {
+    text-align: center;
+    flex: 1;
+}
+
+.battle-pokemon-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.versus {
+    font-size: 24px;
+    color: #ffcc00;
+    margin: 0 10px;
+}
+
+/* Log da batalha */
+.battle-log {
+    max-height: 200px;
+    overflow-y: scroll;
+    border-top: 2px solid #ffcc00;
+    padding-top: 10px;
+}
+
+.log-content {
+    font-size: 14px;
+    color: #333;
+    padding: 10px;
+    white-space: pre-line;
+}
+
+
 /* Responsividade */
 @media (max-width: 768px) {
     .content {

@@ -82,6 +82,12 @@ def do_battle(trainer1, trainer2):
     turns = 0
     while not battle.is_finished():
         try:
+            results.append(
+                f"P1: {battle.t1.current_poke.id}: {battle.t1.current_poke.stats_effective} "
+            )
+            results.append(
+                f"P2: {battle.t2.current_poke.id}: {battle.t2.current_poke.stats_effective}"
+            )
             t1_avail_moves = battle.t1.current_poke.get_available_moves()
             t2_avail_moves = battle.t2.current_poke.get_available_moves()
 

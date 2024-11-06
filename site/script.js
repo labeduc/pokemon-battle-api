@@ -17,6 +17,49 @@ function initializeChoices() {
   });
 }
 
+// Função para abrir e atualizar a modal de batalha
+function openBattleModal(battleData) {
+  const modal = document.getElementById("battle-modal");
+  modal.style.display = "block"; // Exibe a modal
+
+  const logContent = document.getElementById("battle-log-content");
+  logContent.innerHTML = ""; // Limpa o log de batalha
+
+  // Itera sobre cada linha dos dados de batalha
+  battleData.forEach((line, index) => {
+    setTimeout(() => {
+      // Atualiza as imagens e HP conforme a linha da batalha
+      if (line.startsWith("P1:")) {
+        const [_, pokemonIndex, hp] = line.split(": ");
+        updateBattleStatus("pokemon1", pokemonIndex.trim(), hp.trim());
+      } else if (line.startsWith("P2:")) {
+        const [_, pokemonIndex, hp] = line.split(": ");
+        updateBattleStatus("pokemon2", pokemonIndex.trim(), hp.trim());
+      } else {
+        const logEntry = document.createElement("p");
+        logEntry.textContent = line;
+        logContent.appendChild(logEntry); // Adiciona a linha ao log de batalha
+      }
+    }, index * 1000);
+  });
+}
+
+// Função para atualizar o status do Pokémon em batalha
+function updateBattleStatus(side, pokemonIndex, hp) {
+  const imageElement = document.getElementById(`${side}-image`);
+  const hpElement = document.getElementById(`${side}-hp`);
+
+  // Atualiza a imagem e HP do Pokémon em batalha
+  imageElement.src = `https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/pokemons/${pokemonIndex}/picture`;
+  hpElement.textContent = hp;
+}
+
+// Evento para fechar a modal de batalha
+document.getElementById("close-battle-modal").addEventListener("click", () => {
+  document.getElementById("battle-modal").style.display = "none";
+});
+
+
 async function batalha(e) {
   e.preventDefault();
 
@@ -56,17 +99,10 @@ async function batalha(e) {
     const battleSteps = await response.json();
     const messages = battleSteps.data;
 
-    const log = document.getElementById('log');
-    log.innerHTML = ''; // Limpa o log antes de uma nova batalha
-
-
-    messages.forEach((message, index) => {
-      setTimeout(() => {
-        log.innerHTML += message + '\n';
-        log.scrollTop = log.scrollHeight;
-      }, index * 1000); // Mensagens surgem a cada segundo
-    });
-  } catch (error) { console.log(error) }
+    openBattleModal(messages);
+  } catch (error) {
+    console.error("Erro ao iniciar a batalha:", error);
+  }
 }
 
 // Função para buscar os dados dos Pokémon e preencher os dropdowns
