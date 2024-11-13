@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha Pokémon</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Botão de voltar para a página inicial -->
+
+  <div class="container">
+    <a href="index.html" class="home-button" aria-label="Voltar para a página inicial">
+      <span class="home-icon">
+        << Voltar</span> <!-- HTML para um ícone de "home" -->
+    </a>
+    <h1>PVP</h1>
+    <form id="battle-form">
+      <div class="content">
+        <!-- Formulário à esquerda -->
+        <div class="form-section">
+          <label for="trainer-name">Nome do Treinador 1:</label>
+          <input type="text" id="trainer-name" name="trainer-name" required>
+
+          <label for="pokemon1">Pokémon 1:</label>
+          <div class="pokemon-selection">
+            <select id="pokemon1" name="pokemon1" required></select>
+            <img id="pokemon1-image" class="pokemon-image" alt="Imagem do Pokémon 1">
+          </div>
+
+          <label for="pokemon2">Pokémon 2:</label>
+          <div class="pokemon-selection">
+            <select id="pokemon2" name="pokemon2" required></select>
+            <img id="pokemon2-image" class="pokemon-image" alt="Imagem do Pokémon 2">
+          </div>
+
+          <label for="pokemon3">Pokémon 3:</label>
+          <div class="pokemon-selection">
+            <select id="pokemon3" name="pokemon3" required></select>
+            <img id="pokemon3-image" class="pokemon-image" alt="Imagem do Pokémon 3">
+          </div>
+        </div>
+        <!-- X para indicar o versus -->
+        <div class="versus">X</div>
+
+        <!-- Imagem do Pamparuga à direita -->
+        <!-- Formulário à esquerda -->
+        <div class="form-section">
+          <label for="trainer-name2">Nome do Treinador 2:</label>
+          <input type="text" id="trainer-name2" name="trainer-name2" required>
+
+          <label for="pokemon4">Pokémon 1:</label>
+          <div class="pokemon-selection">
+            <select id="pokemon4" name="pokemon4" required></select>
+            <img id="pokemon4-image" class="pokemon-image" alt="Imagem do Pokémon 1">
+          </div>
+
+          <label for="pokemon5">Pokémon 2:</label>
+          <div class="pokemon-selection">
+            <select id="pokemon5" name="pokemon5" required></select>
+            <img id="pokemon5-image" class="pokemon-image" alt="Imagem do Pokémon 2">
+          </div>
+
+          <label for="pokemon6">Pokémon 3:</label>
+          <div class="pokemon-selection">
+            <select id="pokemon6" name="pokemon6" required></select>
+            <img id="pokemon6-image" class="pokemon-image" alt="Imagem do Pokémon 3">
+          </div>
+        </div>
+      </div>
+      <div>
+        <button id="button-form" type="submit">Iniciar Batalha</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal para exibir características do Pokémon -->
+  <div id="pokemon-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <h2 id="pokemon-name"></h2>
+      <p id="pokemon-details"></p>
+    </div>
+  </div>
+
+  <!-- Modal de Batalha -->
+  <div id="battle-modal" class="modal">
+    <div class="modal-content battle-modal-content">
+      <span id="close-battle-modal" class="close">&times;</span>
+      <h2>Registro de Batalha</h2>
+
+      <!-- Seção de Pokémon em batalha -->
+      <div class="battle-status">
+        <div class="pokemon-side" id="pokemon1-status">
+          <img src="" alt="Pokémon 1" id="pokemon1-image1" class="battle-pokemon-image">
+          <p>HP: <span id="pokemon1-hp"></span></p>
+        </div>
+        <span class="versus">X</span>
+        <div class="pokemon-side" id="pokemon2-status">
+          <img src="" alt="Pokémon 2" id="pokemon2-image1" class="battle-pokemon-image">
+          <p>HP: <span id="pokemon2-hp"></span></p>
+        </div>
+      </div>
+
+      <!-- Área de log de batalha -->
+      <div class="battle-log">
+        <div id="battle-log-content" class="log-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="script_pvp.js"></script>
+</body>
+
+</html>

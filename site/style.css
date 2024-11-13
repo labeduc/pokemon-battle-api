@@ -282,6 +282,49 @@ button:hover {
     white-space: pre-line;
 }
 
+.screen {
+    display: none; /* Oculto por padrão */
+}
+
+.screen.active {
+    display: block; /* Exibe a tela ativa */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.intro-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.home-button {
+    position: absolute;
+    color: #007acc;
+    font-size: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.home-button:hover {
+    color: #005f99;
+}
+
+.home-icon {
+    font-size: 12px;
+    margin-right: 8px;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
