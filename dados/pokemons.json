@@ -29690,10 +29690,10 @@
     ],
     "movimentos": [
       "sandstorm",
-      "earth-power",
       "synthesis",
       "energy-ball",
-      "razor-wind"
+      "razor-wind",
+      "rock-blast"
     ],
     "habilidade": "thick-fat",
     "natureza": "serious",
@@ -29703,7 +29703,7 @@
       200,
       280,
       250,
-      150,
+      250,
       100
     ],
     "imagem": "dados/pamparuga.webp",
