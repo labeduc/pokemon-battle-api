@@ -29701,9 +29701,9 @@
     "stats": [
       150,
       200,
-      250,
+      280,
       200,
-      120,
+      150,
       100
     ],
     "imagem": "dados/pamparuga.webp",
@@ -29735,13 +29735,13 @@
         "rock",
         "fighting",
         "dragon",
-        "dark"
+        "dark",
+        "flying"
       ],
       "causa_dano_metade": [
         "bug",
         "steel",
-        "fire",
-        "flying"
+        "fire"
       ],
       "causa_dano_zero": []
     }
