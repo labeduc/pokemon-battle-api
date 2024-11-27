@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena de Batalhas - CSV Upload</title>
+  <link rel="stylesheet" href="arena.css">
+</head>
+
+<body>
+  <div class="container">
+    <a href="index.html" class="home-button" aria-label="Voltar para a página inicial">
+      <span class="home-icon">
+        << Voltar</span> <!-- HTML para um ícone de "home" -->
+    </a>
+    <h1>Arena de Batalhas</h1>
+    <p>Faça o upload de um arquivo CSV com as batalhas para a arena.</p>
+
+    <!-- Upload do Arquivo CSV -->
+    <input type="file" id="csv-upload" accept=".csv">
+    <button id="process-csv">Carregar Batalhas</button>
+
+    <!-- Lista de Batalhas -->
+    <div id="battle-list-section" class="hidden">
+      <h2>Lista de Batalhas</h2>
+      <ul id="battle-list"></ul>
+      <button id="start-battles" class="hidden">Iniciar Todas as Batalhas</button>
+    </div>
+
+    <!-- Modal para Exibir os Rounds da Batalha -->
+    <div id="rounds-modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2>Detalhes da Batalha</h2>
+        <pre id="rounds-content"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="arena.js"></script>
+</body>
+
+</html>
