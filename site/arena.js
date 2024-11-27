@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Iniciar todas as batalhas
   startBattlesButton.addEventListener("click", async () => {
     for (const [index, battle] of battles.entries()) {
-      const response = await fetch("http://localhost:8000/batalha", {
+      const response = await fetch("https://batalha-pokemon-cbc1c71b98dd.herokuapp.com/batalha", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
