@@ -7,7 +7,7 @@ Matheus M,Júlia D,arceus,slaking,dragonite,garchomp,blissey,infernape
 Matheus M,Cauã F,arceus,slaking,dragonite,nidoqueen,blaziken,dragonite
 Matheus M,Giovanna B,arceus,slaking,dragonite,tyranitar,tangrowth,slaking
 Matheus M,Maria Luíza Z,arceus,slaking,dragonite,ninetales,tentacruel,exeggutor
-Matheus M,Kevin B,arceus,slaking,dragonite,deoxys,shuckle,dusknoir
+Matheus M,Kevin B,arceus,slaking,dragonite,deoxys-defense,shuckle,dusknoir
 Matheus M,Isadora L,arceus,slaking,dragonite,eevee,togekiss,garchomp
 Matheus M,Lucas S,arceus,slaking,dragonite,eevee,snorlax,pikachu
 Matheus M,Jogador X,arceus,slaking,dragonite,gliscor,lucario,blissey
@@ -19,7 +19,7 @@ Ana K,Júlia D,dragonite,slaking,arceus,garchomp,blissey,infernape
 Ana K,Cauã F,dragonite,slaking,arceus,nidoqueen,blaziken,dragonite
 Ana K,Giovanna B,dragonite,slaking,arceus,tyranitar,tangrowth,slaking
 Ana K,Maria Luíza Z,dragonite,slaking,arceus,ninetales,tentacruel,exeggutor
-Ana K,Kevin B,dragonite,slaking,arceus,deoxys,shuckle,dusknoir
+Ana K,Kevin B,dragonite,slaking,arceus,deoxys-defense,shuckle,dusknoir
 Ana K,Isadora L,dragonite,slaking,arceus,eevee,togekiss,garchomp
 Ana K,Lucas S,dragonite,slaking,arceus,eevee,snorlax,pikachu
 Ana K,Jogador X,dragonite,slaking,arceus,gliscor,lucario,blissey
@@ -30,7 +30,7 @@ Bernardo T,Júlia D,dragonite,swampert,charizard,garchomp,blissey,infernape
 Bernardo T,Cauã F,dragonite,swampert,charizard,nidoqueen,blaziken,dragonite
 Bernardo T,Giovanna B,dragonite,swampert,charizard,tyranitar,tangrowth,slaking
 Bernardo T,Maria Luíza Z,dragonite,swampert,charizard,ninetales,tentacruel,exeggutor
-Bernardo T,Kevin B,dragonite,swampert,charizard,deoxys,shuckle,dusknoir
+Bernardo T,Kevin B,dragonite,swampert,charizard,deoxys-defense,shuckle,dusknoir
 Bernardo T,Isadora L,dragonite,swampert,charizard,eevee,togekiss,garchomp
 Bernardo T,Lucas S,dragonite,swampert,charizard,eevee,snorlax,pikachu
 Bernardo T,Jogador X,dragonite,swampert,charizard,gliscor,lucario,blissey
@@ -40,7 +40,7 @@ Matheus R,Júlia D,bulbasaur,charizard,squirtle,garchomp,blissey,infernape
 Matheus R,Cauã F,bulbasaur,charizard,squirtle,nidoqueen,blaziken,dragonite
 Matheus R,Giovanna B,bulbasaur,charizard,squirtle,tyranitar,tangrowth,slaking
 Matheus R,Maria Luíza Z,bulbasaur,charizard,squirtle,ninetales,tentacruel,exeggutor
-Matheus R,Kevin B,bulbasaur,charizard,squirtle,deoxys,shuckle,dusknoir
+Matheus R,Kevin B,bulbasaur,charizard,squirtle,deoxys-defense,shuckle,dusknoir
 Matheus R,Isadora L,bulbasaur,charizard,squirtle,eevee,togekiss,garchomp
 Matheus R,Lucas S,bulbasaur,charizard,squirtle,eevee,snorlax,pikachu
 Matheus R,Jogador X,bulbasaur,charizard,squirtle,gliscor,lucario,blissey
@@ -49,7 +49,7 @@ Wesley L,Júlia D,electivire,salamence,rhyperior,garchomp,blissey,infernape
 Wesley L,Cauã F,electivire,salamence,rhyperior,nidoqueen,blaziken,dragonite
 Wesley L,Giovanna B,electivire,salamence,rhyperior,tyranitar,tangrowth,slaking
 Wesley L,Maria Luíza Z,electivire,salamence,rhyperior,ninetales,tentacruel,exeggutor
-Wesley L,Kevin B,electivire,salamence,rhyperior,deoxys,shuckle,dusknoir
+Wesley L,Kevin B,electivire,salamence,rhyperior,deoxys-defense,shuckle,dusknoir
 Wesley L,Isadora L,electivire,salamence,rhyperior,eevee,togekiss,garchomp
 Wesley L,Lucas S,electivire,salamence,rhyperior,eevee,snorlax,pikachu
 Wesley L,Jogador X,electivire,salamence,rhyperior,gliscor,lucario,blissey
@@ -57,35 +57,35 @@ Olavo M,Júlia D,bulbasaur,ivysaur,venusaur,garchomp,blissey,infernape
 Olavo M,Cauã F,bulbasaur,ivysaur,venusaur,nidoqueen,blaziken,dragonite
 Olavo M,Giovanna B,bulbasaur,ivysaur,venusaur,tyranitar,tangrowth,slaking
 Olavo M,Maria Luíza Z,bulbasaur,ivysaur,venusaur,ninetales,tentacruel,exeggutor
-Olavo M,Kevin B,bulbasaur,ivysaur,venusaur,deoxys,shuckle,dusknoir
+Olavo M,Kevin B,bulbasaur,ivysaur,venusaur,deoxys-defense,shuckle,dusknoir
 Olavo M,Isadora L,bulbasaur,ivysaur,venusaur,eevee,togekiss,garchomp
 Olavo M,Lucas S,bulbasaur,ivysaur,venusaur,eevee,snorlax,pikachu
 Olavo M,Jogador X,bulbasaur,ivysaur,venusaur,gliscor,lucario,blissey
 Júlia D,Cauã F,garchomp,blissey,infernape,nidoqueen,blaziken,dragonite
 Júlia D,Giovanna B,garchomp,blissey,infernape,tyranitar,tangrowth,slaking
 Júlia D,Maria Luíza Z,garchomp,blissey,infernape,ninetales,tentacruel,exeggutor
-Júlia D,Kevin B,garchomp,blissey,infernape,deoxys,shuckle,dusknoir
+Júlia D,Kevin B,garchomp,blissey,infernape,deoxys-defense,shuckle,dusknoir
 Júlia D,Isadora L,garchomp,blissey,infernape,eevee,togekiss,garchomp
 Júlia D,Lucas S,garchomp,blissey,infernape,eevee,snorlax,pikachu
 Júlia D,Jogador X,garchomp,blissey,infernape,gliscor,lucario,blissey
 Cauã F,Giovanna B,nidoqueen,blaziken,dragonite,tyranitar,tangrowth,slaking
 Cauã F,Maria Luíza Z,nidoqueen,blaziken,dragonite,ninetales,tentacruel,exeggutor
-Cauã F,Kevin B,nidoqueen,blaziken,dragonite,deoxys,shuckle,dusknoir
+Cauã F,Kevin B,nidoqueen,blaziken,dragonite,deoxys-defense,shuckle,dusknoir
 Cauã F,Isadora L,nidoqueen,blaziken,dragonite,eevee,togekiss,garchomp
 Cauã F,Lucas S,nidoqueen,blaziken,dragonite,eevee,snorlax,pikachu
 Cauã F,Jogador X,nidoqueen,blaziken,dragonite,gliscor,lucario,blissey
 Giovanna B,Maria Luíza Z,tyranitar,tangrowth,slaking,ninetales,tentacruel,exeggutor
-Giovanna B,Kevin B,tyranitar,tangrowth,slaking,deoxys,shuckle,dusknoir
+Giovanna B,Kevin B,tyranitar,tangrowth,slaking,deoxys-defense,shuckle,dusknoir
 Giovanna B,Isadora L,tyranitar,tangrowth,slaking,eevee,togekiss,garchomp
 Giovanna B,Lucas S,tyranitar,tangrowth,slaking,eevee,snorlax,pikachu
 Giovanna B,Jogador X,tyranitar,tangrowth,slaking,gliscor,lucario,blissey
-Maria Luíza Z,Kevin B,ninetales,tentacruel,exeggutor,deoxys,shuckle,dusknoir
+Maria Luíza Z,Kevin B,ninetales,tentacruel,exeggutor,deoxys-defense,shuckle,dusknoir
 Maria Luíza Z,Isadora L,ninetales,tentacruel,exeggutor,eevee,togekiss,garchomp
 Maria Luíza Z,Lucas S,ninetales,tentacruel,exeggutor,eevee,snorlax,pikachu
 Maria Luíza Z,Jogador X,ninetales,tentacruel,exeggutor,gliscor,lucario,blissey
-Kevin B,Isadora L,deoxys,shuckle,dusknoir,eevee,togekiss,garchomp
-Kevin B,Lucas S,deoxys,shuckle,dusknoir,eevee,snorlax,pikachu
-Kevin B,Jogador X,deoxys,shuckle,dusknoir,gliscor,lucario,blissey
+Kevin B,Isadora L,deoxys-defense,shuckle,dusknoir,eevee,togekiss,garchomp
+Kevin B,Lucas S,deoxys-defense,shuckle,dusknoir,eevee,snorlax,pikachu
+Kevin B,Jogador X,deoxys-defense,shuckle,dusknoir,gliscor,lucario,blissey
 Isadora L,Lucas S,eevee,togekiss,garchomp,eevee,snorlax,pikachu
 Isadora L,Jogador X,eevee,togekiss,garchomp,gliscor,lucario,blissey
 Lucas S,Jogador X,eevee,snorlax,pikachu,gliscor,lucario,blissey

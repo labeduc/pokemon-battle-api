@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.getElementById("close-modal");
   const roundsContent = document.getElementById("rounds-content");
   const results = [];
-  const jogadores = {};
 
   let battles = []; // Lista de batalhas carregadas do CSV
+  let jogadores = {};
 
   // Função para fechar a modal
   function closeCModal() {
@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Cria o conteúdo para exibir na modal
     const modalContent = `
-        <div id="customModal" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
-            <h2>Sorted Keys</h2>
-            <ul>
+        <div id="customModal" style="position: fixed; top: 50%; left: 50%; width: 20%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; text-align: center;">
+            <h2>Ranking de Treinadores</h2>
+            <ul style="width: 100%;">
                 ${sortedKeys.map(key => `<li>${key}: ${data[key]}</li>`).join('')}
             </ul>
             <button id="closeCButton">Close</button>
@@ -55,11 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const reader = new FileReader();
 
     reader.onload = (event) => {
-      const lines = event.target.result.split("\r\n");
+      let lines = event.target.result.split("\r\n");
+
+      if (lines.length === 1) {
+        lines = event.target.result.split("\n");
+      }
+
       battles = lines
         .map(line => line.split(","))
         .filter(cols => cols.length === 8); // Garantir que tenha todas as colunas
-      console.log(battles);
+
       // Exibir a lista de batalhas
       battleList.innerHTML = "";
       battles.forEach((battle, index) => {
@@ -79,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
       battleResults.classList.remove("hidden");
     };
 
-    console.log(file);
     reader.readAsText(file);
   });
 
@@ -141,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startBattlesButton.classList.add("hidden");
     clearBattlesButton.classList.add("hidden");
     battleResults.classList.add("hidden");
+    jogadores = {};
   });
 
   // Fechar modal

@@ -3,13 +3,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background: linear-gradient(135deg, #a2d9ff, #007acc);
 }
 
 .container {
     max-width: 800px;
+    min-height: 600px;
     text-align: center;
     padding: 20px;
     background-color: #ffffff;
