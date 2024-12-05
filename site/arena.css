@@ -106,3 +106,11 @@ li {
     font-size: 12px;
     margin-right: 8px;
 }
+
+.battle-list-section {
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 300px;
+     overflow-y: scroll;  
+}

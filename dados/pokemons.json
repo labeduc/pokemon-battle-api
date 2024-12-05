@@ -21800,57 +21800,6 @@
     }
   },
   {
-    "id": 386,
-    "nome": "deoxys-normal",
-    "nivel": 1,
-    "sexo": "male",
-    "tipos": [
-      "psychic"
-    ],
-    "movimentos": [
-      "teleport",
-      "amnesia"
-    ],
-    "habilidade": "pressure",
-    "natureza": "hardy",
-    "cur_hp": 50,
-    "stats": [
-      50,
-      150,
-      50,
-      50,
-      150,
-      150
-    ],
-    "imagem": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png",
-    "legendario": false,
-    "mitico": true,
-    "geracao": "generation-iii",
-    "danos": {
-      "recebe_dano_duplo": [
-        "ghost",
-        "bug",
-        "dark"
-      ],
-      "recebe_dano_metade": [
-        "fighting",
-        "psychic"
-      ],
-      "recebe_dano_zero": [],
-      "causa_dano_duplo": [
-        "fighting",
-        "poison"
-      ],
-      "causa_dano_metade": [
-        "steel",
-        "psychic"
-      ],
-      "causa_dano_zero": [
-        "dark"
-      ]
-    }
-  },
-  {
     "id": 387,
     "nome": "turtwig",
     "nivel": 1,
@@ -27775,7 +27724,7 @@
     }
   },
   {
-    "id": 10002,
+    "id": 386,
     "nome": "deoxys-defense",
     "nivel": 1,
     "sexo": "genderless",

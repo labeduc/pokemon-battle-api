@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const reader = new FileReader();
 
     reader.onload = (event) => {
-      const lines = event.target.result.split("\n");
+      const lines = event.target.result.split("\r\n");
       battles = lines
         .map(line => line.split(","))
         .filter(cols => cols.length === 8); // Garantir que tenha todas as colunas

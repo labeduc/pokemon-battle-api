@@ -23,24 +23,25 @@ pb.PokeSim._pokemon_stats.append(
 )
 pb.PokeSim._pokemon_stats.append(
     [
-        495,
-        "posporuga",
-        "ground",
-        "grass",
-        150,
-        200,
-        250,
-        120,
-        200,
-        100,
+        386,
+        "deoxys-defense",
+        "psychic",
+        "",
+        50,
+        70,
+        160,
+        160,
+        70,
+        90,
         35,
-        4000,
+        1000,
         670,
         1,
     ]
 )
 
 pb.PokeSim._name_to_id["pamparuga"] = 494
+pb.PokeSim._name_to_id["deoxys-defense"] = 386
 
 
 def create_pokemon(name):
