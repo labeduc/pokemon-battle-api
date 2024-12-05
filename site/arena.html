@@ -15,7 +15,15 @@
         << Voltar</span> <!-- HTML para um ícone de "home" -->
     </a>
     <h1>Arena de Batalhas</h1>
-    <p>Faça o upload de um arquivo CSV com as batalhas para a arena.</p>
+    <p>Faça o upload de um arquivo CSV com as batalhas para a arena.<br>
+      O arquivo deve ter 1 linha por batalha, e cada batalha deve possuir 8 colunas conforme abaixo:<br>
+      <small><strong>T1, T2, Pokemon1, Pokemon2, Pokemon3, Pokemon4, Pokemon5, Pokemon6</strong></small><br>
+    <div style="text-align: left;">Onde:<br>
+      <small><strong>T1</strong> e <strong>T2</strong> são os treinadores<br>
+        <strong>Pokemon1</strong> a <strong>Pokemon3</strong> são os pokémons do Treinador 1</small><br>
+      <small><strong>Pokemon4</strong> a <strong>Pokemon6</strong> são os pokémons do Treinador 2</small>
+    </div>
+    </p>
 
     <!-- Upload do Arquivo CSV -->
     <input type="file" id="csv-upload" accept=".csv">
@@ -26,6 +34,8 @@
       <h2>Lista de Batalhas</h2>
       <ul id="battle-list"></ul>
       <button id="start-battles" class="hidden">Iniciar Todas as Batalhas</button>
+      <button id="clear-battles" class="hidden">Limpar Batalhas</button>
+      <button id="show-results" class="hidden">Exibir Resultados</button>
     </div>
 
     <!-- Modal para Exibir os Rounds da Batalha -->
